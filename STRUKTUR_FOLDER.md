@@ -1,10 +1,10 @@
-# 📁 Struktur Folder Project BatasKota Coffee
+# Struktur Folder Project BatasKota Coffee
 
 Penjelasan lengkap setiap folder dan fungsinya dalam project Laravel.
 
 ---
 
-## 🏗️ STRUKTUR UTAMA PROJECT
+## STRUKTUR UTAMA PROJECT
 
 ```
 bataskotaweb/
@@ -31,9 +31,9 @@ bataskotaweb/
 
 ---
 
-## 📂 PENJELASAN DETAIL SETIAP FOLDER
+## PENJELASAN DETAIL SETIAP FOLDER
 
-### 1️⃣ `app/` - Kode Aplikasi Utama
+### 1. `app/` - Kode Aplikasi Utama
 
 **Fungsi**: Tempat semua kode bisnis aplikasi
 
@@ -93,7 +93,7 @@ app/
 
 ---
 
-### 2️⃣ `bootstrap/` - Bootstrap Laravel
+### 2. `bootstrap/` - Bootstrap Laravel
 
 **Fungsi**: File inisialisasi Laravel
 
@@ -111,7 +111,7 @@ bootstrap/
 
 ---
 
-### 3️⃣ `config/` - Konfigurasi Aplikasi
+### 3. `config/` - Konfigurasi Aplikasi
 
 **Fungsi**: File konfigurasi aplikasi
 
@@ -141,7 +141,7 @@ config/
 
 ---
 
-### 4️⃣ `database/` - Database Migrations & Seeders
+### 4. `database/` - Database Migrations & Seeders
 
 **Fungsi**: Mengelola database schema dan data awal
 
@@ -177,7 +177,7 @@ database/
 
 ---
 
-### 5️⃣ `public/` - File Publik (Assets)
+### 5. `public/` - File Publik (Assets)
 
 **Fungsi**: File yang bisa diakses langsung dari browser
 
@@ -203,7 +203,7 @@ public/
 
 ---
 
-### 6️⃣ `resources/` - Resources (Views, CSS, JS)
+### 6. `resources/` - Resources (Views, CSS, JS)
 
 **Fungsi**: Template views dan asset development
 
@@ -275,7 +275,7 @@ resources/
 
 ---
 
-### 7️⃣ `routes/` - Definisi Routes
+### 7. `routes/` - Definisi Routes
 
 **Fungsi**: Mendefinisikan URL routes aplikasi
 
@@ -295,7 +295,7 @@ routes/
 
 ---
 
-### 8️⃣ `storage/` - Storage Files
+### 8. `storage/` - Storage Files
 
 **Fungsi**: Menyimpan file aplikasi (cache, logs, uploads)
 
@@ -321,7 +321,7 @@ storage/
 
 ---
 
-### 9️⃣ `tests/` - Testing Files
+### 9. `tests/` - Testing Files
 
 **Fungsi**: File untuk unit testing dan feature testing
 
@@ -341,7 +341,7 @@ tests/
 
 ---
 
-### 🔟 `vendor/` - Dependencies (Composer)
+### 10. `vendor/` - Dependencies (Composer)
 
 **Fungsi**: Library/package yang diinstall via Composer
 
@@ -362,7 +362,7 @@ vendor/
 
 ---
 
-## 📋 FILE PENTING DI ROOT
+## FILE PENTING DI ROOT
 
 ### `.env` - Environment Configuration
 ```
@@ -447,7 +447,7 @@ export default defineConfig({
 
 ---
 
-## 🎯 ALUR KERJA FOLDER
+## ALUR KERJA FOLDER
 
 ### Saat User Akses Halaman:
 
@@ -479,39 +479,39 @@ export default defineConfig({
 
 ---
 
-## 📊 STRUKTUR FOLDER VISUAL
+## STRUKTUR FOLDER VISUAL
 
 ```
 bataskotaweb/
 │
-├── 📂 app/                      ← Kode aplikasi (Controllers, Models)
+├── app/                         ← Kode aplikasi (Controllers, Models)
 │   ├── Http/Controllers/        ← Logika bisnis
 │   └── Models/                  ← Database models
 │
-├── 📂 database/                 ← Database schema & data
+├── database/                    ← Database schema & data
 │   ├── migrations/              ← Struktur tabel
 │   └── seeders/                 ← Data awal
 │
-├── 📂 resources/                ← Views & assets
+├── resources/                   ← Views & assets
 │   └── views/                   ← Template HTML (Blade)
 │
-├── 📂 routes/                   ← URL routes
+├── routes/                      ← URL routes
 │   └── web.php                  ← Definisi routes
 │
-├── 📂 public/                   ← File publik (CSS, JS, images)
+├── public/                      ← File publik (CSS, JS, images)
 │   └── storage/                 ← File upload
 │
-├── 📂 storage/                  ← Cache, logs, compiled views
+├── storage/                     ← Cache, logs, compiled views
 │   ├── framework/views/         ← Compiled Blade
 │   └── logs/                    ← Application logs
 │
-├── 📂 config/                   ← Konfigurasi aplikasi
+├── config/                      ← Konfigurasi aplikasi
 │
-├── 📂 bootstrap/                ← Bootstrap Laravel
+├── bootstrap/                   ← Bootstrap Laravel
 │
-├── 📂 vendor/                   ← Dependencies (Composer)
+├── vendor/                      ← Dependencies (Composer)
 │
-├── 📂 tests/                    ← Testing files
+├── tests/                       ← Testing files
 │
 ├── .env                         ← Environment config
 ├── composer.json                ← PHP dependencies
@@ -522,7 +522,7 @@ bataskotaweb/
 
 ---
 
-## 🚀 COMMAND PENTING
+## COMMAND PENTING
 
 ### Lihat struktur folder
 ```bash
@@ -558,15 +558,10 @@ php artisan route:clear             # Clear route cache
 
 ---
 
-## 💡 TIPS
+## TIPS
 
 1. **Jangan edit `vendor/`** - Folder ini auto-generated
 2. **Jangan edit `storage/framework/views/`** - Ini compiled cache
 3. **Edit di `resources/views/`** - Tempat yang benar untuk edit views
 4. **Edit di `app/Http/Controllers/`** - Tempat yang benar untuk edit logic
-5. **Edit di `database/migrations/`** - Tempat yang benar untuk edit schema
-6. **Gunakan `.env`** - Untuk konfigurasi environment-specific
-
----
-
-**Semoga penjelasan ini membantu Anda memahami struktur folder project! 🎉**
+5. **Edit di `database/migrations/`** - Tempat yang ben
