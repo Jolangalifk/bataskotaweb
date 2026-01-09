@@ -4,7 +4,7 @@
 <footer class="bg-white dark:bg-[#1a140d] border-t border-[#f3eee7] dark:border-[#3a2e22]">
     <div class="px-4 md:px-10 lg:px-28 py-12">
         <div class="max-w-[1200px] mx-auto flex flex-col gap-10 text-center md:text-left">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="flex flex-col gap-4">
                     <div class="flex items-center justify-center md:justify-start gap-3">
                         <div class="flex w-32">
@@ -22,7 +22,7 @@
                         <a class="text-[#6b5840] dark:text-[#a08b70] hover:text-primary text-sm" href="{{ route('menu') }}">Menu</a>
                     </div>
                 </div>
-                <div class="flex flex-col gap-4">
+                <!-- <div class="flex flex-col gap-4">
                     <h4 class="text-[#1b160d] dark:text-white font-bold text-sm uppercase tracking-wider">Akun</h4>
                     <div class="flex flex-col gap-2">
                         @auth
@@ -33,7 +33,7 @@
                             <a class="text-[#6b5840] dark:text-[#a08b70] hover:text-primary text-sm" href="{{ route('register') }}">Register</a>
                         @endauth
                     </div>
-                </div>
+                </div> -->
                 <div class="flex flex-col gap-4">
                     <h4 class="text-[#1b160d] dark:text-white font-bold text-sm uppercase tracking-wider">Kontak</h4>
                     <div class="flex flex-col gap-3 text-[#6b5840] dark:text-[#a08b70] text-sm">
