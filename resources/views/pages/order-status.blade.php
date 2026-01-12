@@ -81,13 +81,23 @@
             </div>
             <div class="p-6 space-y-4">
                 @foreach($order->items as $item)
-                <div class="flex justify-between items-start">
+                <div class="flex justify-between items-start gap-3">
                     <div class="flex gap-3">
-                        <div class="bg-[#f8f7f6] dark:bg-[#221a10] rounded p-1 h-fit">
-                            <span class="font-bold text-primary">{{ $item->quantity }}x</span>
+                        <!-- Product Image -->
+                        <div class="w-14 h-14 rounded-lg overflow-hidden bg-[#f8f7f6] dark:bg-[#221a10] flex-shrink-0">
+                            @if($item->product && $item->product->image)
+                            <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product_name }}" class="w-full h-full object-cover">
+                            @else
+                            <div class="w-full h-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl text-[#be9b6b]">coffee</span>
+                            </div>
+                            @endif
                         </div>
                         <div>
-                            <p class="font-medium text-[#1b160d] dark:text-white">{{ $item->product_name }}</p>
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-primary text-sm">{{ $item->quantity }}x</span>
+                                <p class="font-medium text-[#1b160d] dark:text-white">{{ $item->product_name }}</p>
+                            </div>
                             @if($item->variant_text)
                             <p class="text-xs text-[#083672] dark:text-[#be9b6b]">{{ $item->variant_text }}</p>
                             @endif
@@ -106,6 +116,16 @@
                     <span class="font-bold text-[#1b160d] dark:text-white">Total</span>
                     <span class="text-xl font-black text-primary">Rp {{ number_format($order->total_price, 0, ',', '.') }}</span>
                 </div>
+
+                @if($order->status === 'pending')
+                <a href="{{ route('payment', $order->id) }}" class="mt-4 w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined text-sm">payments</span>
+                    <span>Bayar Sekarang</span>
+                </a>
+                <p class="text-center text-xs text-gray-500 dark:text-gray-400 mt-2">
+                    Selesaikan pembayaran untuk memproses pesanan Anda
+                </p>
+                @endif
             </div>
         </section>
     </div>

@@ -29,18 +29,23 @@
                 <div>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white">Status Toko</h3>
                     <div class="flex items-center gap-2 mt-1">
-                        @if($profile->is_open ?? true)
+                        @if(!($profile->is_open ?? true))
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300">
+                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                            Tutup Sementara (Manual)
+                        </span>
+                        @elseif($profile->store_status ?? false)
                         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300">
                             <span class="relative flex h-2 w-2">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                             </span>
-                            Toko Buka
+                            Buka
                         </span>
                         @else
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300">
-                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
-                            Toko Tutup
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300">
+                            <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                            Di Luar Jam Operasional
                         </span>
                         @endif
                     </div>
@@ -49,13 +54,18 @@
             <form action="{{ route('admin.company.toggle-status') }}" method="POST">
                 @csrf
                 <button type="submit" class="px-6 py-3 rounded-lg font-bold text-white transition-all {{ ($profile->is_open ?? true) ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700' }}">
-                    {{ ($profile->is_open ?? true) ? 'Tutup Toko' : 'Buka Toko' }}
+                    {{ ($profile->is_open ?? true) ? 'Tutup Sementara' : 'Buka Kembali' }}
                 </button>
             </form>
         </div>
-        <p class="text-sm text-slate-500 dark:text-slate-400 mt-4">
-            Status ini akan ditampilkan di halaman utama. Jika toko ditutup, pelanggan tetap bisa melihat menu tapi akan melihat status "Tutup".
-        </p>
+        <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+            <p class="text-sm text-blue-800 dark:text-blue-300">
+                <span class="font-bold">Cara Kerja Status Toko:</span><br>
+                - Toko akan <span class="font-semibold">otomatis buka</span> saat masuk jam operasional<br>
+                - Toko akan <span class="font-semibold">otomatis tutup</span> saat di luar jam operasional<br>
+                - Gunakan tombol "Tutup Sementara" untuk menutup toko secara manual (misal: libur mendadak)
+            </p>
+        </div>
     </div>
 
     <div class="bg-white dark:bg-[#1a140c] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6">

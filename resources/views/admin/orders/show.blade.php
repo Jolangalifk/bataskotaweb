@@ -69,15 +69,25 @@
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Item Pesanan</h3>
                 <div class="space-y-4">
                     @foreach($order->items as $item)
-                    <div class="flex justify-between items-start">
-                        <div class="flex gap-3">
-                            <div class="bg-slate-100 dark:bg-slate-800 rounded p-2 h-fit">
-                                <span class="font-bold text-primary">{{ $item->quantity }}x</span>
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="flex gap-4">
+                            <!-- Product Image -->
+                            <div class="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-800 flex-shrink-0">
+                                @if($item->product && $item->product->image)
+                                <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product_name }}" class="w-full h-full object-cover">
+                                @else
+                                <div class="w-full h-full flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-slate-400">coffee</span>
+                                </div>
+                                @endif
                             </div>
                             <div>
-                                <p class="font-medium text-slate-900 dark:text-white">{{ $item->product_name }}</p>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-primary">{{ $item->quantity }}x</span>
+                                    <p class="font-medium text-slate-900 dark:text-white">{{ $item->product_name }}</p>
+                                </div>
                                 @if($item->variant_text)
-                                <p class="text-xs text-slate-500">{{ $item->variant_text }}</p>
+                                <p class="text-xs text-slate-500 mt-1">{{ $item->variant_text }}</p>
                                 @endif
                                 @if($item->notes)
                                 <p class="text-xs text-slate-400 italic mt-1">Catatan: {{ $item->notes }}</p>
